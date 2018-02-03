@@ -57,28 +57,24 @@
         </div>
     </div>
     <script type="text/javascript">
-    $("#search-btn").on("click", function() {
-        var searchedCharacter = $("#character-search").val().trim();
+        // Question: What does this code do?
+        $("#submit-reserve-btn").on("click", function(event) {
+          event.preventDefault();
+          var newReservation = {
+            name: $("#patron-name").val().trim(),
+            phone: $("#patron-phone").val().trim(),
+            email: $("#patron-email").val().trim(),
+            patronId: $("#patron-id").val().trim()
+          };
 
-        // Using a RegEx Pattern to remove spaces from searchedCharacter
-        // You can read more about RegEx Patterns later https://www.regexbuddy.com/regex.html
-        searchedCharacter = searchedCharacter.replace(/\s+/g, "").toLowerCase();
-
-        $.get("/api/" + searchedCharacter, function(data) {
+          // Question: What does this code do??
+          $.post("/api/tables", newReservation)
+          .then(function(data) {
             console.log(data);
-            if (data) {
-                $("#stats").show();
-                $("#name").text(data.name);
-                $("#role").text(data.role);
-                $("#age").text(data.age);
-                $("#force-points").text(data.forcePoints);
-            } else {
-                $("#name").text("The force is not strong with this one. Your character was not found.");
-                $("#stats").hide();
-            }
+            alert("Thank you for subimiting your reservation!");
+          });
         });
-    });
-    </script>
+      </script>
     <!-- Adobe Typekit script -->
     <script type="text/javascript" src="https://use.typekit.net/fev4asl.css"></script>
     <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
