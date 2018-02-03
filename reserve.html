@@ -67,12 +67,15 @@
             patronId: $("#patron-id").val().trim()
           };
 
+          console.log(newReservation);
           // Question: What does this code do??
-          $.post("/api/tables", newReservation)
-          .then(function(data) {
-            console.log(data);
-            alert("Thank you for subimiting your reservation!");
-          });
+            $.ajax({
+              type: "POST",
+              url: "/api/tables",
+              data: newReservation,
+            }).done(function (){
+                console.log("Ive finished executing")
+            });
         });
       </script>
     <!-- Adobe Typekit script -->
