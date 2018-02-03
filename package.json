@@ -1,0 +1,22 @@
+{
+  "name": "hot_table_vip",
+  "version": "1.0.0",
+  "description": "hot_table_vip_app",
+  "main": "Hot_Table_VIP.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "Hot_Table_VIP"
+  },
+  "author": "John Kim",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.16.2",
+    "http": "^0.0.0",
+    "mysql": "^2.15.0"
+  },
+  "devDependencies": {}
+}
